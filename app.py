@@ -28,8 +28,8 @@ try:
     client.connect_async(config.mqtt_host, config.mqtt_port, 60)
     client.loop_start()
 
-    for i in range(4):
-        time.sleep(70)
+    for i in range(100):
+        time.sleep(1)
         pub= client.publish("wagon/hard0/test", payload=f"hello {i}", qos=0, retain=False)
         print(f"pub_res {pub.rc}")
 except ConnectionRefusedError as e:
